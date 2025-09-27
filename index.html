@@ -1,374 +1,188 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arton Jardins Haddock - Fundo de Investimento Imobiliário</title>
-  <meta name="description" content="Arton Jardins Haddock - Gestão profissional em ativos imobiliários. Transparência, governança e foco em resultados." />
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --nav-height:72px;
-      --blue:#0e3b6b;
-      --muted:#6b7280;
-      --max-width:1100px;
-      --hero-img: url('https://images.unsplash.com/photo-1580128632042-5c8b1d6fb857?auto=format&fit=crop&w=2000&q=60');
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#1f2937;
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* Header */
-    header{
-      position:fixed;
-      left:0;right:0;
-      top:0;
-      height:var(--nav-height);
-      background:var(--blue);
-      color:white;
-      display:flex;
-      align-items:center;
-      z-index:40;
-      box-shadow: 0 2px 6px rgba(2,6,23,0.15);
-    }
-    .container{
-      width:100%;
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:0 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      font-weight:700;
-    }
-    .brand .logo{
-      width:42px;height:42px;border-radius:6px;background:#fff3;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;
-      font-family: "Playfair Display", serif;
-      font-size:18px;
-    }
-    nav ul{
-      list-style:none;
-      margin:0;padding:0;
-      display:flex;gap:22px;align-items:center;
-    }
-    nav a{
-      color: #e6eefb;
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 6px;
-    }
-    nav a:hover{opacity:0.85}
-
-    /* Hero */
-    .hero{
-      margin-top:var(--nav-height);
-      min-height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background-image: linear-gradient(90deg, rgba(4,18,37,0.55), rgba(4,18,37,0.15)), var(--hero-img);
-      background-position:center;
-      background-size:cover;
-      color:white;
-      text-align:center;
-      padding:56px 20px;
-    }
-    .hero .inner{
-      max-width:980px;
-    }
-    .hero h1{
-      font-family: "Playfair Display", serif;
-      font-size:36px;
-      margin:0 0 12px;
-      letter-spacing:0.2px;
-    }
-    .hero p{
-      margin:0;
-      font-size:16px;
-      opacity:0.95;
-    }
-
-    /* Sections */
-    section{
-      padding:64px 20px;
-    }
-    .wrap{
-      max-width:var(--max-width);
-      margin:0 auto;
-    }
-    h2{
-      font-family:"Playfair Display", serif;
-      color:var(--blue);
-      margin:0 0 18px;
-      font-size:26px;
-    }
-    .lead{
-      color:var(--muted);
-      margin-bottom:18px;
-    }
-
-    /* Quem somos card */
-    .info-grid{
-      display:grid;
-      grid-template-columns: 1fr 320px;
-      gap:28px;
-      align-items:start;
-    }
-    .card{
-      background:#fff;
-      border-radius:10px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(15,23,42,0.06);
-    }
-    .muted-sm{color:var(--muted);font-size:14px}
-
-    /* Services */
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-    }
-    .service{
-      padding:20px;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,0.04);
-    }
-    .service h3{margin:0 0 10px;font-size:16px;color:var(--blue)}
-
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 360px;
-      gap:24px;
-    }
-    form input, form textarea{
-      width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px;margin-bottom:12px;
-    }
-    form button{
-      padding:12px 16px;border-radius:8px;border:0;background:var(--blue);color:#fff;font-weight:600;cursor:pointer;
-    }
-
-    /* Footer */
-    footer{
-      padding:28px 20px;background:#f8fafc;color: #374151;
-    }
-    .footer-row{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .legal{font-size:13px;color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .info-grid,.contact-grid{grid-template-columns:1fr}
-      nav ul{display:none}
-    }
-    @media (max-width:520px){
-      .hero h1{font-size:28px}
-      .hero{min-height:360px;padding:36px 16px}
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="container">
-      <div class="brand" aria-label="logo e nome">
-        <div class="logo" aria-hidden="true">AJ</div>
-        <div>
-          <div style="font-size:15px">Arton Jardins Haddock</div>
-          <div style="font-size:12px;opacity:0.85">Fundo de Investimento Imobiliário</div>
+export default function App() {
+  return (
+    <div className="font-inter text-gray-800">
+      {/* Header */}
+      <header className="fixed top-0 w-full bg-blue-900 text-white shadow z-50">
+        <div className="max-w-6xl mx-auto flex justify-between items-center h-16 px-4">
+          <div className="flex items-center gap-2 font-bold">
+            <div className="bg-white/20 rounded-lg px-3 py-1">AJ</div>
+            <div>
+              <div>Arton Jardins Haddock</div>
+              <div className="text-xs opacity-80">Fundo de Investimento Imobiliário</div>
+            </div>
+          </div>
+          <nav className="hidden md:flex gap-6 text-sm font-semibold">
+            <a href="#quem-somos" className="hover:opacity-80">Quem Somos</a>
+            <a href="#servicos" className="hover:opacity-80">Serviços</a>
+            <a href="#contato" className="hover:opacity-80">Contato</a>
+            <a href="#privacidade" className="hover:opacity-80">Privacidade</a>
+          </nav>
         </div>
-      </div>
+      </header>
 
-      <nav aria-label="menu principal">
-        <ul>
-          <li><a href="#quem-somos">Quem Somos</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="#privacidade">Privacidade</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      {/* Hero */}
+      <section
+        className="pt-16 min-h-[420px] flex items-center justify-center text-center text-white bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(14,59,107,0.6), rgba(14,59,107,0.4)), url('https://images.unsplash.com/photo-1580128632042-5c8b1d6fb857?auto=format&fit=crop&w=2000&q=60')",
+        }}
+      >
+        <div className="max-w-3xl p-6">
+          <h1 className="text-3xl md:text-4xl font-playfair font-bold mb-3">
+            Gestão Profissional em Ativos Imobiliários
+          </h1>
+          <p className="opacity-90">
+            Transparência, governança e foco em resultados desde 14 de junho de 2024 —
+            sempre em conformidade com normas regulatórias brasileiras.
+          </p>
+        </div>
+      </section>
 
-  <main>
-    <section class="hero" role="banner" aria-label="Banner principal">
-      <div class="inner">
-        <h1>Gestão Profissional em Ativos Imobiliários</h1>
-        <p>Transparência, governança e foco em resultados desde 14 de junho de 2024 — sempre em conformidade com normas regulatórias brasileiras.</p>
-      </div>
-    </section>
-
-    <section id="quem-somos">
-      <div class="wrap">
-        <h2>Quem Somos</h2>
-        <p class="lead">O <strong>Arton Jardins Haddock Fundo de Investimento Imobiliário – Responsabilidade Limitada</strong> é um veículo de investimento constituído e registrado no CNPJ abaixo, com atuação focada na aquisição, administração e valorização de ativos imobiliários.</p>
-
-        <div class="info-grid" style="margin-top:18px">
-          <div>
-            <div class="card">
-              <h3 style="margin-top:0">Visão e Atuação</h3>
-              <p class="muted-sm">Nosso objetivo é gerar valor sustentável para cotistas por meio de gestão profissional de portfólio imobiliário, com foco em governança, compliance e resultados de longo prazo.</p>
-
-              <h4 style="margin-top:16px">Dados Cadastrais</h4>
-              <p class="muted-sm">
-                <strong>Razão Social:</strong> Arton Jardins Haddock Fundo de Investimento Imobiliario Responsabilidade Limitada<br>
-                <strong>CNPJ:</strong> 55.539.410/0001-05 (55539410000105)<br>
-                <strong>Data de Abertura:</strong> 14/06/2024<br>
-                <strong>Porte:</strong> Sem Enquadramento<br>
-                <strong>Natureza Jurídica:</strong> Clube/Fundo de Investimento<br>
-                <strong>Tipo:</strong> Matriz<br>
+      {/* Quem Somos */}
+      <section id="quem-somos" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-playfair text-blue-900 mb-6">Quem Somos</h2>
+          <p className="text-gray-600 mb-8">
+            O <strong>Arton Jardins Haddock Fundo de Investimento Imobiliário – Responsabilidade Limitada</strong>
+            é um veículo de investimento constituído e registrado no CNPJ abaixo, com atuação
+            focada na aquisição, administração e valorização de ativos imobiliários.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="p-6">
+              <h3 className="font-semibold text-blue-900 mb-2">Dados Cadastrais</h3>
+              <p className="text-sm text-gray-600">
+                <strong>Razão Social:</strong> Arton Jardins Haddock Fundo de Investimento Imobiliario RL <br />
+                <strong>CNPJ:</strong> 55.539.410/0001-05 <br />
+                <strong>Abertura:</strong> 14/06/2024 <br />
+                <strong>Porte:</strong> Sem Enquadramento <br />
+                <strong>Natureza Jurídica:</strong> Clube/Fundo de Investimento <br />
+                <strong>Tipo:</strong> Matriz <br />
                 <strong>Situação:</strong> Ativa (desde 14/06/2024)
               </p>
-            </div>
-
-            <div style="margin-top:18px" class="card">
-              <h3>Missão</h3>
-              <p class="muted-sm">Prover gestão responsável e profissional de ativos imobiliários, otimizando retornos dentro de parâmetros de risco bem definidos e conformidade regulatória.</p>
-            </div>
-          </div>
-
-          <aside>
-            <div class="card">
-              <h3>Localização</h3>
-              <p class="muted-sm">
-                Praia De Botafogo, 501 — 5º Andar - Parte<br>
-                Botafogo — Rio de Janeiro / RJ<br>
+            </Card>
+            <Card className="p-6">
+              <h3 className="font-semibold text-blue-900 mb-2">Missão</h3>
+              <p className="text-sm text-gray-600">
+                Prover gestão responsável e profissional de ativos imobiliários, otimizando retornos
+                dentro de parâmetros de risco bem definidos e conformidade regulatória.
+              </p>
+            </Card>
+            <Card className="p-6">
+              <h3 className="font-semibold text-blue-900 mb-2">Localização & Contatos</h3>
+              <p className="text-sm text-gray-600">
+                Praia De Botafogo, 501 — 5º Andar - Parte<br />
+                Botafogo — Rio de Janeiro / RJ<br />
                 CEP: 22250-040
               </p>
-
-              <h3 style="margin-top:12px">Contatos</h3>
-              <p class="muted-sm">
-                E-mail: <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a><br>
-                Telefones:<br>
-                (21) 3262-9600 | (21) 2514-8600
+              <p className="text-sm text-gray-600 mt-3">
+                E-mail: <a href="mailto:ol-documentacao-societario@btgpactual.com" className="text-blue-700">ol-documentacao-societario@btgpactual.com</a><br />
+                Telefones: (21) 3262-9600 | (21) 2514-8600
               </p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicos" style="background:#f7fafc">
-      <div class="wrap">
-        <h2>Serviços</h2>
-        <p class="lead">Áreas principais de atuação — edite conforme a estratégia real do fundo.</p>
-
-        <div class="services">
-          <div class="service">
-            <h3>Identificação de Ativos</h3>
-            <p class="muted-sm">Análise de oportunidades imobiliárias com potencial de valorização e rendimento.</p>
-          </div>
-          <div class="service">
-            <h3>Gestão Patrimonial</h3>
-            <p class="muted-sm">Administração e manutenção de ativos visando eficiência operacional e preservação de valor.</p>
-          </div>
-          <div class="service">
-            <h3>Estratégias de Valorização</h3>
-            <p class="muted-sm">Projetos de melhoria, repositionamento ou renegociação para aumento de rendimento.</p>
-          </div>
-          <div class="service">
-            <h3>Compliance e Governança</h3>
-            <p class="muted-sm">Políticas de conformidade regulatória, disclosure e atendimento a cotistas.</p>
+            </Card>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contato">
-      <div class="wrap">
-        <h2>Contato</h2>
-        <p class="lead">Entre em contato para informações institucionais, dúvidas sobre o fundo ou documentação societária.</p>
+      {/* Serviços */}
+      <section id="servicos" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-playfair text-blue-900 mb-6">Serviços</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { title: "Identificação de Ativos", desc: "Análise de oportunidades imobiliárias com potencial." },
+              { title: "Gestão Patrimonial", desc: "Administração e manutenção visando eficiência e valor." },
+              { title: "Estratégias de Valorização", desc: "Projetos de melhoria, reposicionamento e rendimento." },
+              { title: "Compliance e Governança", desc: "Políticas de conformidade regulatória e disclosure." },
+            ].map((s, i) => (
+              <Card key={i} className="p-6">
+                <h3 className="font-semibold text-blue-900 mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-600">{s.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <div class="contact-grid">
-          <div>
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-              <label for="name" class="muted-sm">Nome</label>
-              <input id="name" name="name" required placeholder="Seu nome">
-
-              <label for="email" class="muted-sm">E-mail</label>
-              <input id="email" type="email" name="email" required placeholder="seu@exemplo.com">
-
-              <label for="message" class="muted-sm">Mensagem</label>
-              <textarea id="message" name="message" rows="6" placeholder="Escreva sua mensagem..." required></textarea>
-
-              <button type="submit">Enviar Mensagem</button>
+      {/* Contato */}
+      <section id="contato" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-playfair text-blue-900 mb-6">Contato</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <form
+              className="flex flex-col gap-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const name = e.target.name.value;
+                const email = e.target.email.value;
+                const message = e.target.message.value;
+                window.location.href = `mailto:ol-documentacao-societario@btgpactual.com?subject=Contato pelo site - ${encodeURIComponent(
+                  name
+                )}&body=${encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\n${message}`)}`;
+              }}
+            >
+              <input name="name" placeholder="Nome" required className="border rounded p-2" />
+              <input name="email" type="email" placeholder="Email" required className="border rounded p-2" />
+              <textarea name="message" rows="5" placeholder="Mensagem" required className="border rounded p-2" />
+              <Button type="submit" className="bg-blue-900 hover:bg-blue-800">Enviar</Button>
             </form>
-            <p style="margin-top:12px" class="muted-sm">Ou envie email diretamente para: <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a></p>
+            <Card className="p-6">
+              <h3 className="font-semibold text-blue-900 mb-2">Endereço</h3>
+              <p className="text-sm text-gray-600">
+                Praia De Botafogo, 501 — 5º Andar - Parte<br />
+                Botafogo — Rio de Janeiro / RJ<br />
+                CEP: 22250-040
+              </p>
+              <h3 className="font-semibold text-blue-900 mt-4 mb-2">Telefone</h3>
+              <p className="text-sm text-gray-600">(21) 3262-9600 | (21) 2514-8600</p>
+              <h3 className="font-semibold text-blue-900 mt-4 mb-2">E-mail</h3>
+              <p className="text-sm text-gray-600">ol-documentacao-societario@btgpactual.com</p>
+            </Card>
           </div>
-
-          <aside>
-            <div class="card">
-              <h3>Telefone</h3>
-              <p class="muted-sm">(21) 3262-9600<br>(21) 2514-8600</p>
-
-              <h3 style="margin-top:12px">Endereço</h3>
-              <p class="muted-sm">Praia De Botafogo, 501 — 5º Andar - Parte<br>Botafogo — Rio de Janeiro / RJ</p>
-
-              <h3 style="margin-top:12px">Horário</h3>
-              <p class="muted-sm">Seg — Sex: 09:00 — 18:00</p>
-            </div>
-          </aside>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="privacidade" style="background:#fff">
-      <div class="wrap">
-        <h2>Privacidade</h2>
-        <p class="lead">Informações sobre tratamento de dados, políticas de privacidade e uso de cookies — resumo e link para documento completo.</p>
-        <div class="card" style="margin-top:12px">
-          <p class="muted-sm">Este site fornece informações institucionais. Para obter a política completa de privacidade e tratamento de dados pessoais, favor contatar <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a>.</p>
+      {/* Privacidade */}
+      <section id="privacidade" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-playfair text-blue-900 mb-6">Política de Privacidade</h2>
+          <Card className="p-6 space-y-4">
+            <p className="text-sm text-gray-600">
+              A <strong>Arton Jardins Haddock Fundo de Investimento Imobiliário</strong> valoriza a privacidade de seus usuários.
+              Esta Política de Privacidade explica como coletamos, usamos e protegemos as informações pessoais fornecidas.
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>1. Coleta de Dados:</strong> Informações podem ser coletadas por meio de formulários de contato e interações no site.
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>2. Uso de Dados:</strong> As informações coletadas são utilizadas exclusivamente para fins institucionais e de comunicação.
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>3. Compartilhamento:</strong> Não compartilhamos dados pessoais com terceiros, exceto quando exigido por lei.
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>4. Segurança:</strong> Medidas de segurança são aplicadas para proteger os dados contra acesso não autorizado.
+            </p>
+            <p className="text-sm text-gray-600">
+              Para mais informações ou dúvidas, entre em contato através do e-mail: <a href="mailto:ol-documentacao-societario@btgpactual.com" className="text-blue-700">ol-documentacao-societario@btgpactual.com</a>.
+            </p>
+          </Card>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="footer-row">
-      <div class="legal">
-        © <strong>Arton Jardins Haddock Fundo de Investimento Imobiliario</strong> — CNPJ 55.539.410/0001-05<br>
-        Endereço: Praia De Botafogo, 501 — Botafogo, Rio de Janeiro — CEP 22250-040
-      </div>
-      <div style="font-size:13px;color:var(--muted)">Desenvolvido por <strong>Arton</strong></div>
+      {/* Footer */}
+      <footer className="bg-gray-100 py-6 text-sm text-gray-600">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-4">
+          <div>
+            © Arton Jardins Haddock Fundo de Investimento Imobiliário — CNPJ 55.539.410/0001-05
+          </div>
+          <div>Praia De Botafogo, 501 — Botafogo, Rio de Janeiro</div>
+        </div>
+      </footer>
     </div>
-  </footer>
-
-  <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){
-          window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior:'smooth'});
-        }
-      });
-    });
-
-    // Fake form handler: use mailto fallback
-    function handleSubmit(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('message').value.trim();
-      const subject = encodeURIComponent('Contato pelo site - ' + name);
-      const body = encodeURIComponent('Nome: ' + name + '\\nE-mail: ' + email + '\\n\\n' + msg);
-      // Opens user's email client
-      window.location.href = `mailto:ol-documentacao-societario@btgpactual.com?subject=${subject}&body=${body}`;
-    }
-  </script>
-
-</body>
-</html>
+  );
+}
